@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+phones.db
+data/scraped_phones.json
+.pytest_cache/
+*.zip
+*.pdf
