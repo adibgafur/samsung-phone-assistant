@@ -110,8 +110,10 @@ def key_status(
     x_api_key: str | None = Header(default=None),
     x_base_url: str | None = Header(default=None),
 ):
-    has_header = bool(x_api_key and x_api_key.strip())
-    has_local = bool(x_base_url and "localhost" in x_base_url)
+    header_key = x_api_key if isinstance(x_api_key, str) else None
+    base_url_val = x_base_url if isinstance(x_base_url, str) else None
+    has_header = bool(header_key and header_key.strip())
+    has_local = bool(base_url_val and "localhost" in base_url_val)
     has_server = bool(GROQ_API_KEY and GROQ_API_KEY.strip())
     return {
         "has_server_key": has_server,
